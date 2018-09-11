@@ -1,5 +1,8 @@
 import java.util.TreeSet;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Set;
 /**
  * Write a description of class UniqueWords here.
  * 
@@ -8,46 +11,44 @@ import java.util.Scanner;
  */
 public class UniqueWords
 {
-   public static void main (String[] args)
-   {
-      /*//set doesn't take in duplicates
+   public static void oldWay(String filename){
       try (Scanner in = new Scanner(new File(filename)))
       {
+         //Creates a map in which to store the characters and words
          //Creates corresponding keyset
-         Set <Character> words = new TreeSet();
+         Set <String> words = new TreeSet<>();
          
          //takes the words, cleans them of non-characters, and adds to map
          while (in.hasNext())
          {
-            String word;
-            Character c = word.charAt(0);
-            //ArrayList to store temporary values
-            ArrayList<String> tempVal = new ArrayList();
-
-            // Update the map here
-            // Updates the map with old-fashioned code (no merge method)
-            if (keySet.contains(c)){
-                tempVal = alphabetCount.get(c);
-            }
-            tempVal.add(word); //adds the new word to the list. If list DNE, now size of 1
-            Collections.sort(tempVal);
-            alphabetCount.put(c, tempVal);
-
+            String word = clean(in.next());
+            //System.out.println(word);
+            words.add(word);
          }
-
-         //Prints the map
-         for (char key : keySet){
-             System.out.println(key + " : " + alphabetCount.get(key));
-         }
+         
       }
       catch (FileNotFoundException e)
       {
          System.out.println("Cannot open: " + filename);
       }
-    }*/
+    }
+
+    public static String clean(String s)
+   {
+      String r = "";
+      for (int i = 0; i < s.length(); i++)
+      {
+         char c = s.charAt(i);
+         if (Character.isLetter(c))
+         {
+            r = r + c;
+         }
+      }
+      return r.toLowerCase();
+    }
     
-  
-
-
+   public static void main (String[] args)
+   {
+       oldWay("UniqueWordsFile.txt");
    }
-}
+ }
