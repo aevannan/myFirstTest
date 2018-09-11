@@ -43,54 +43,60 @@ public class Parking
                 else if (dw.peek() != choice)
                 {
                     int len = dw.size(); //length of the driveway stack
-                    while (len > 0) 
+                    if(dw.contains(choice)) //if choice is in driveway
                     {
-                        if (dw.peek() == choice)
+                        while (len > 0) 
                         {
-                            dw.pop();
-                            while (street.size() > 0)
+                            if (dw.peek() == choice)
                             {
-                                int stemp = street.pop();
-                                if (stemp != choice)
+                                dw.pop();
+                                while (street.size() > 0)
                                 {
-                                    dw.push(stemp); //moves everything from street into driveway
+                                    int stemp = street.pop();
+                                    if (stemp != choice)
+                                    {
+                                        dw.push(stemp); //moves everything from street into driveway
+                                    }
                                 }
+                                System.out.println("Your car at " + choice + " is now removed from the driveway");
+                                System.out.println("All the cars in the street were added back");
+                                System.out.println("This is the driveway: " + dw);
+                                System.out.println("This is the street: " + street);
+                                len = 0; //so the while loop ends
                             }
-                            System.out.println("Your car at " + choice + " is now removed from the driveway");
-                            System.out.println("All the cars in the street were added back");
-                            System.out.println("This is the driveway: " + dw);
-                            System.out.println("This is the street: " + street);
-                            len = 0; //so the while loop ends
-                        }
-                        else
-                        {
-                            int temp = dw.pop();
-                            street.push(temp); //moves temp to street
-                            System.out.println("The car at " + temp + " was temporarily moved to the street");
-                            System.out.println("This is the driveway: " + dw);
-                            System.out.println("This is the street: " + street);
-                            System.out.println();
-                            len--;
+                            else
+                            {
+                                int temp = dw.pop();
+                                street.push(temp); //moves temp to street
+                                System.out.println("The car at " + temp + " was temporarily moved to the street");
+                                System.out.println("This is the driveway: " + dw);
+                                System.out.println("This is the street: " + street);
+                                System.out.println();
+                                len--;
+                            }
                         }
                     }
-                    
-                    //if the car was not in the driveway, I move everything from street to dw stack & print the stacks at the end
-                    System.out.println("Your car was not in the driveway!");
-                    while (street.size() > 0)
+                    else
                     {
-                        int stemp = street.pop();
-                        if (stemp != choice)
+                        //if the car was not in the driveway, I move everything from street to dw stack & print the stacks at the end
+                        System.out.println("Your car was not in the driveway!");
+                        while (street.size() > 0)
                         {
-                            dw.push(stemp); //moves everything from street into driveway
+                            int stemp = street.pop();
+                            if (stemp != choice)
+                            {
+                                dw.push(stemp); //moves everything from street into driveway
+                            }
                         }
+                        System.out.println("All the cars in the street were added back");
+                        System.out.println("This is the driveway: " + dw);
+                        System.out.println("This is the street: " + street);
                     }
-                    System.out.println("All the cars in the street were added back");
-                    System.out.println("This is the driveway: " + dw);
-                    System.out.println("This is the street: " + street);
                 }
             }
         }
     }
 }
+
 
 

@@ -14,27 +14,32 @@ public class UniqueWords
    public static void oldWay(String filename){
       try (Scanner in = new Scanner(new File(filename)))
       {
-         //Creates a map in which to store the characters and words
-         //Creates corresponding keyset
+         //creates a set that holds all the words from the file 
          Set <String> words = new TreeSet<>();
          
-         //takes the words, cleans them of non-characters, and adds to map
+         //takes the words, cleans them of non-characters, and adds to set
          while (in.hasNext())
          {
             String word = clean(in.next());
-            //System.out.println(word);
-            words.add(word);
+            words.add(word);//adds it to the treeset
          }
          
+         //prints all of the words in the set with a for-each loop
+         for (String w: words)
+         {
+             System.out.println(w);
+         }
+         System.out.println("There are " + words.size() + " unique words"); //how many unique words in the treeset 
       }
       catch (FileNotFoundException e)
       {
-         System.out.println("Cannot open: " + filename);
+         System.out.println("Cannot open: " + filename); //if file doesnt exist
       }
     }
 
     public static String clean(String s)
    {
+      //gets rid of non-letters characters
       String r = "";
       for (int i = 0; i < s.length(); i++)
       {
@@ -49,6 +54,6 @@ public class UniqueWords
     
    public static void main (String[] args)
    {
-       oldWay("UniqueWordsFile.txt");
+       oldWay("UniqueWordsFile.txt"); //runs oldWay
    }
  }
