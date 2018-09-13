@@ -36,15 +36,7 @@ public class Pair
     {
         return col;
     }
-    
-    /**
-     * @param takes in what the number should be changed to
-     */
-    public void changeNum(int n)
-    {
-        num = n;
-    }
-    
+
     /**
      * @return returns 
      */
