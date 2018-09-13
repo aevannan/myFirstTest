@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=r\ c
+comment0.target=Pair(int,\ int)
+comment0.text=\n\ @param\ takes\ in\ the\ row\ and\ column\ number\n
+comment1.params=
+comment1.target=int\ getRow()
+comment1.text=\n\ @return\ returns\ the\ row\ number\n
+comment2.params=
+comment2.target=int\ getColumn()
+comment2.text=\n\ @return\ returns\ the\ column\ number\n
+comment3.params=n
+comment3.target=void\ changeNum(int)
+comment3.text=\n\ @param\ takes\ in\ what\ the\ number\ should\ be\ changed\ to\n
+comment4.params=
+comment4.target=int\ getNum()
+comment4.text=\n\ @return\ returns\ \n
+numComments=5
