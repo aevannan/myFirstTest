@@ -1,11 +1,12 @@
 
+
 import java.util.Scanner;
 /**
    Exercising a runway simulation.
 */
 public class SimulationRunner
 {
-   /*public static void main(String[] args)
+   public static void main(String[] args)
    {
       RunwaySimulator simulator = new RunwaySimulator();
 
@@ -43,5 +44,7 @@ public class SimulationRunner
       }
       System.out.println();
       System.out.println(" -- Thank you --");
-   }*/
+   }
 }
+
+
